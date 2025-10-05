@@ -1,0 +1,6 @@
+,student_id,major,GPA,is_cs_major,credits_taken
+0,101,spanish,4.0,False,15.0
+1,102,computer science,3.0,True,17.0
+2,103,english,3.7,False,12.0
+3,104,biology,3.2,False,15.0
+4,105,chemistry,4.0,False,18.0
