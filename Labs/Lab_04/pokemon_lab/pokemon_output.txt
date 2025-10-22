@@ -1,0 +1,58 @@
+--- Running Test Pipeline (Built-in Test Modes) ---
+⚡ Running update_portfolio.py in TEST mode
+✅ Loaded lookup data with columns: ['card_id', 'card_name', 'set_id', 'set_name', 'card_market_value']
+✅ Loaded inventory data with columns: ['card_name', 'set_id', 'card_number', 'binder_name', 'page_number', 'slot_number', 'card_id']
+✅ Merged DataFrame columns (final): ['card_name', 'card_id', 'set_id', 'set_name', 'binder_name', 'page_number', 'slot_number', 'card_market_value']
+✅ Portfolio written to test_card_portfolio.csv
+⚡ Running generate_summary.py in TEST mode
+Total Portfolio Value: $326.55
+Most Valuable Card: Charizard (ID: base0-4)
+Value: $250.75
+Test complete.
+
+
+
+$ make Add_Set
+--- Adding New Card Set ---
+Enter the TCG Card Set ID (e.g., base1, base4): base1
+Fetching local card data for set: base1 ...
+cp: 'card_set_lookup/base1.json' and 'card_set_lookup/base1.json' are the same file
+Card data for set 'base1' has been added to card_set_lookup/base1.json
+@bburt26 ➜ .../DS-2002-F25/Labs/Lab_04/pokemon_lab (Lab_4) $ make Add_Set
+--- Adding New Card Set ---
+Enter the TCG Card Set ID (e.g., base1, base4): base4
+Fetching local card data for set: base4 ...
+cp: 'card_set_lookup/base4.json' and 'card_set_lookup/base4.json' are the same file
+Card data for set 'base4' has been added to card_set_lookup/base4.json
+
+
+
+--- Starting Portfolio Build Workflow ---
+Do you want to add a NEW card set? (yes/no)
+no
+Do you want to refresh ALL existing card sets? (yes/no)
+yes
+make[1]: Entering directory '/workspaces/DS-2002-F25/Labs/Lab_04/pokemon_lab'
+--- Refreshing All Card Sets ---
+Refreshing all card sets in card_set_lookup/ ...
+Updating set: base1 ...
+cp: 'card_set_lookup/base1.json' and 'card_set_lookup/base1.json' are the same file
+Data for base1 written to card_set_lookup/base1.json
+Updating set: base4 ...
+cp: 'card_set_lookup/base4.json' and 'card_set_lookup/base4.json' are the same file
+Data for base4 written to card_set_lookup/base4.json
+All card sets in card_set_lookup/ have been refreshed!
+make[1]: Leaving directory '/workspaces/DS-2002-F25/Labs/Lab_04/pokemon_lab'
+--- Starting Full Production Pipeline ---
+Running ETL step (update_portfolio.main)...
+⚡ Running update_portfolio.py in PRODUCTION mode
+✅ Loaded lookup data with columns: ['card_id', 'card_name', 'set_id', 'set_name', 'card_market_value']
+✅ Loaded inventory data with columns: ['card_name', 'set_id', 'card_number', 'binder_name', 'page_number', 'slot_number', 'card_id']
+✅ Merged DataFrame columns (final): ['card_name', 'card_id', 'set_id', 'set_name', 'binder_name', 'page_number', 'slot_number', 'card_market_value']
+✅ Portfolio written to card_portfolio.csv
+Running Reporting step (generate_summary.main)...
+🚀 Running generate_summary.py in PRODUCTION mode
+Total Portfolio Value: $5,646.74
+Most Valuable Card: Charizard (ID: base1-4)
+Value: $457.11
+--- Production Pipeline Completed Successfully ---
